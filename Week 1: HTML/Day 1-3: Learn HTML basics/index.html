@@ -1,0 +1,177 @@
+<!-- Hello world
+<br> (self closing) (line breaker)
+<br> <!DOCTYPE html> -> html ->  (head -> title) -> (body ->h1/p)
+<!DOCTYPE html> -> explain what type of document the page is -->
+
+<!--  markup language  -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Cheet Sheet</title>
+    </head>
+
+    <body>
+        <a href="blog.html">Go to blog</a>
+        <hr>
+        <!--Headings-->
+        <h1>Heading One</h1>
+        <h2>Heading Two</h2>
+        <h3>Heading Three</h3>
+        <h4>Heading Four</h4>
+        <h5>Heading Five</h5>
+        <h6>Heading Six</h6>
+        
+        <!-- Paragraph-->
+        <p> <!--block level element-->
+            <!-- lorem : generate automatic text-->
+            <!-- lorem5 : 5 words?-->
+            Lorem, ipsum dolor <strong>lorem jda aiqas</strong>sit amet consectetur adipisicing elit. Suscipit quam dolor sed enim error natus quae praesentium quibusdam in? Fugit quaerat minima quod, adipisci perspiciatis amet sapiente deleniti nobis saepe.
+            Lorem, ipsum dolor.
+            Lorem ipsum dolor sit amet.
+        </p>
+        <p>
+            Lorem ipsum <em>dolor sit amet</em> consectetur adipisicing <a href="https://google,com" target="_blank">elit</a>. Consequuntur earum tempora voluptas nisi iusto numquam, architecto at ipsum facere. Velit deleniti id quasi at unde nemo ab cum harum sint.
+        </p>
+
+
+        <!--Lists-->
+        <ul> <!--usually nav bar-->
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <li>List Item 4</li>
+        </ul>
+
+        <ol>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+            <li>List Item 4</li>
+        </ol>
+            <!--Table-->
+    <table>
+        <thead>
+            <tr> <!--table role: -->
+                <th>Name</th> <!--table heading-->
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alia Cai</td> <!--table data-->
+                <td>aliacai@uwaterloo.ca</td>
+                <td>19</td>
+            </tr>
+
+            <tr>
+                <td>Honner kay</td> <!--table data-->
+                <td>Honner@uwaterloo.ca</td>
+                <td>21</td>
+            </tr>
+
+            <tr>
+                <td>Amy Yong</td> <!--table data-->
+                <td>Amy@uwaterloo.ca</td>
+                <td>37</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <hr> <!--horizontal line-->
+    <!-- Forms -> need other lanugages to hel(PHP)-->
+    <form action="process.php" method="GET"> <!-- more advanced server side programming-->
+        <div>
+            <label>First Name</label>
+            <input type="text" name="firstName" placeholder="Enter first name">
+        </div>
+        <br>
+        <div>
+            <label>Last Name</label>
+            <input type="text" name="lastName">
+        </div>
+        <br>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email">
+        </div>
+        <br>
+        <div>
+            <label>Message</label>
+            <textarea name="message"></textarea>
+        </div>
+        <br>
+        <div>
+            <label>Gender</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label>Age:</label>
+            <input type="number" name="age" value="30"> <!--predefined value-->
+        </div>
+        <br>
+        <div>
+            <label>Birthday:</label>
+            <input type="date" name="birthday">
+        </div>
+        
+        <input tyepe='submit' name="submit" value="Submit">
+    </form>
+
+    <!--Button-->
+    <button>Click Me</button> <!--click="someFunctions"-->
+
+    <br>
+
+    <!--Image-->
+    <a href="sample.jpg"> <!--clicking image leads to the full image-->
+    <img src="sample.jpg" alt="My Sample Images" widtg="200" height="50"></img> <!-- src="images/sample.jpg"   --> <!--width: 200px-->
+    </a>
+
+    <!--Quotations-->
+    <blockquote cite=""https://traversymedia.com>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quod a reiciendis, voluptatem maxime autem minus dicta odio rem consequatur aliquid totam ex quasi soluta magnam, quibusdam molestias aut. Magnam!
+    </blockquote>
+
+    <p>The <abbr title="World Wide Web">WWW</abbr> is awesome</p>
+
+    <p><cite>HTML crash course</cite> by Brad Traversy</p>
+    <div style="margin-top:500px"></div>
+
+    </body>
+</html>
+
+
+
+
+1. Block level vs Inline level
+
+Inline level:
+<strong> highlight</strong>
+<em>e mphasize->illatic </em>
+<a href="https://google,com" target="_blank"> target="_blank" -> open a new page (external) </a>
+<label>
+<input type="text">
+<img> 
+
+Block 
+<div></div>
+2. Tag attribute: 
+href, target -> place at start tag ->key/value pairs(id="someld")
+
+self-closing: br, hr, img
+
+3. html sematic tags
+<header></header>
+<nav></nav>
+<section></section> <aside></aside>
+<article></article> <aside></aside>
+<footer></footer>
