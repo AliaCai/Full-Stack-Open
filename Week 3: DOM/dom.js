@@ -217,7 +217,7 @@ container.insertBefore(newDiv, h1);//-> part of dom element now
 
 */
 
-//------------------------------------// PART 3 EVENT//------------------------------------
+//------------------------------------// PART 3 EVENT (type) //------------------------------------
 //------------------------------------8. EVENT//------------------------------------
 
 /*
@@ -342,7 +342,7 @@ function runEvent(e){
 /*
     console.log(e.target.value);
     document.getElementById('output').innerHTML = '<h3>'+e.target.value+ '</h3>';
-        document.body.style.display = 'none';
+    document.body.style.display = 'none';
 
 */
 
