@@ -1,4 +1,4 @@
-//------------------------------------// PART 1//------------------------------------
+//------------------------------------// PART 1 SELECT//------------------------------------
 
 
 //DOM -> Document Object Model -> tree of nodes
@@ -125,7 +125,7 @@ for(var i=0; i<odd.length;i++){
 }
 */
 
-//------------------------------------// PART 2//------------------------------------
+//------------------------------------// PART 2 RELATIONSHIP + CHANGE//------------------------------------
 
 
 //------------------------------------6. TRAVERSING THE DOM//------------------------------------
@@ -187,6 +187,7 @@ itemList.previousElementSibling.style.color='green';
 
 //------------------------------------7. createElement//------------------------------------
 
+/*
 //create a div
 var newDiv = document.createElement('div');
 //Add class
@@ -213,4 +214,150 @@ newDiv.style.fontSize='30px';
 
 //2 parameter: what to insert; what to insert before
 container.insertBefore(newDiv, h1);//-> part of dom element now
+
+*/
+
+//------------------------------------// PART 3 EVENT//------------------------------------
+//------------------------------------8. EVENT//------------------------------------
+
+/*
+var button=document.getElementById('button').addEventListener
+('click', function(){
+    console.log(123);
+});
+*/
+
+// 8.1 Create Event + change
+  /*
+var button=document.getElementById('button').addEventListener
+('click', buttonClick);
+
+function buttonClick(e){//****************** e -> a lot of information . do not have to be e
+    //console.log('Button clicked');
+    //document.getElementById('header-title').textContent = 'changed';
+    //document.querySelector('#main').style.backgroundColor='#f4f4f4'; 
+    //console.log(e);
+  
+    console.log(e.target); //->elemnt event is fired from
+    console.log(e.target.id);
+    console.log(e.target.className);
+
+    console.log(e.target.classList); //Dom token list -> like array of the list
+
+    var output = document.getElementById('output');//****************** 
+    output.innerHTML='<h3>'+e.target.id+'</h3>';//****************** 
+
+    //console.log(e.type); //clikc -> what type of event it is
+
+
+
+    //8.2 (clientX / cleintY) VS (offsetX / offsetY)) ******************
+    //from the windows
+    console.log(e.clientX); //position of mouse from the browser window -> left
+    console.log(e.clientY);// from top down
+
+    //from the actual element you are inside of
+    //console.log(e.offsetX);
+    console.log(e.offsetY);
+
+
+
+    //8.3 holding down the key
+    console.log(e.altKey);
+    console.log(e.ctrlKey);
+    console.log(e.shiftKey);
+
+
+}
+*/
+
+//8.3 event 
+// btn event type: click, dblclick, mousedown, mouseup ****************** 
+// btn box type: mouseenter, mouseleave, mouseover, mouseout, mousemove ****************** 
+//text-input: keydown, keyup, keypress, focus -> click the input box, blur->click out, cut, paste, input->anything you do in input ****************** 
+// select: change, input ******************
+// submit (use form):submit
+
+var button= document.getElementById('button')
+var box= document.getElementById('box')
+
+//----------btn----------
+//button.addEventListener('click', runEvent);
+//button.addEventListener('dblclick', runEvent);
+//button.addEventListener('mousedown', runEvent);
+//button.addEventListener('mouseup', runEvent);
+//----------/btn----------
+
+//----------box----------
+//8.3.1 mouseenter vs mouseover | mouseenter vs mouseout ****************** 
+//mouseenter ->  for element itsef | mouseover -> for elements inside as well
+//box.addEventListener('mouseenter', runEvent);
+//box.addEventListener('mouseleave', runEvent);
+
+
+//box.addEventListener('mouseover', runEvent);
+//box.addEventListener('mouseout', runEvent);
+//box.addEventListener('mousemove', runEvent);
+//----------/box----------
+
+var itemInput = document.querySelector('input[type]');
+var form = document.querySelector('form'); //only 1 form so it is fine
+var select = document.querySelector('select');
+
+//----------text-input----------
+//itemInput.addEventListener('keydown',runEvent);
+//itemInput.addEventListener('keyup',runEvent);
+//itemInput.addEventListener('keypress',runEvent);
+
+//itemInput.addEventListener('focus',runEvent);
+//itemInput.addEventListener('blur',runEvent);
+
+//itemInput.addEventListener('cut',runEvent);
+//itemInput.addEventListener('paste',runEvent);
+
+//itemInput.addEventListener('input',runEvent);
+//----------/text-input----------
+
+
+
+//----------select----------
+//select.addEventListener('change',runEvent);
+//select.addEventListener('input',runEvent);
+//----------/select----------
+
+
+form.addEventListener('submit',runEvent);
+
+function runEvent(e){
+    
+    e.preventDefault(); //submit not blink anymore -> not submite to html page/external file by default
+
+    console.log('EVENT TYPE: '+e.type);
+//----------select----------
+    //console.log(e.target.value);
+//----------/select----------
+
+
+//----------text-input----------
+/*
+    console.log(e.target.value);
+    document.getElementById('output').innerHTML = '<h3>'+e.target.value+ '</h3>';
+        document.body.style.display = 'none';
+
+*/
+
+//----------/Input----------
+
+
+//----------box----------
+    //output -> directly id
+   // output.innerHTML = '<h3>MouseX: '+ e.offsetX+ ' </h3><h3>MouseY: '+e.offsetY+'</h3>';
+
+   //box.style.backgroundColor = "rgb("+e.offsetX+ "," +e.offsetY+ ", 40)"; ****************** 
+   //document.body.style.backgroundColor = "rgb("+e.offsetX+ "," +e.offsetY+ ", 40)";
+
+//----------/box----------
+
+}
+
 
