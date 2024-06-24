@@ -1,5 +1,5 @@
 var listItem=document.getElementsByTagName("ul");
-console.log(listItem);
+//console.log(listItem);
 
 for (var i=0; i<listItem.length;i++){
     listItem[i].addEventListener('click',func1);
@@ -10,9 +10,13 @@ for (var i=0; i<listItem.length;i++){
 
 
 function func1(e){
-    console.log(e);
-    console.log(e.target);
-    var lstI=document.getElementById(e.tartet);
-    console.log(lstI);
-    listItem[0].style.background='white';
+
+    var subElements=e.target.nextElementSibling;
+    if(subElements.style.display=='block'){
+        subElements.style.display='none';
+        e.target.style.background='#b7db70';
+    }else{
+        e.target.style.background='none';
+        subElements.style.display='block';
+    }
 }
