@@ -19,9 +19,15 @@
       "reminder": true
     },
     {
-      "id": "e88f",
-      "text": "Take Test",
-      "day": "Monday",
+      "id": "a4d4",
+      "text": "Ok Actually I am shock",
+      "day": "Tuesday",
+      "reminder": true
+    },
+    {
+      "id": "a22d",
+      "text": "Beed",
+      "day": "Wednesday",
       "reminder": true
     }
   ]
