@@ -98,9 +98,9 @@ react native (same library, have reat native rather than react dom)
 
 
 mock up back end
- % npm install -g json-server      ->install locally -> package.json
+ % cd     ->install locally -> package.json
  % npm run server
-
+(% npm ls json-server    )
 ___________________________________________________________________________________
 table of content:
 1. connect conponent (rafce) js with app. js
@@ -141,6 +141,7 @@ table of content:
     "server": "json-server --watch db.json --port 5000" //pretend it is a real back end
   },
 
-  npm run server
+  create db.json
+  npm run server (airply is 5000)
 
 -1:23:22
