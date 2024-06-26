@@ -8,8 +8,8 @@
 //import React from 'react' -> get rid of it
 
 import PropTypes from 'prop-types'
+import {useLocation} from 'react-router-dom' //look at the route we are currently on
 import Button from './Button'
-
 
 //stying: <h1 style={headingStyle}>{title} Tracker</h1> 
 
@@ -22,13 +22,16 @@ import Button from './Button'
 */
 const Header = ({title, onAdd, showAdd}) => {
 
+  const location = useLocation() //access location.pathname
+
+
   return (
     <div className="header">
         <h1>{title}</h1>
-        <Button 
+        {location.pathname === '/' && <Button 
         color={showAdd? 'red':'green'}
         text={showAdd? 'Close' : 'Add'}
-        onClick={onAdd}/>
+        onClick={onAdd}/>}
 
 
     </div>

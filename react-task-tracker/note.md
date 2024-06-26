@@ -101,6 +101,11 @@ mock up back end
  % cd     ->install locally -> package.json
  % npm run server
 (% npm ls json-server    )
+ % npm start
+
+
+ routing
+  % npm i react-router -dom
 ___________________________________________________________________________________
 table of content:
 1. connect conponent (rafce) js with app. js
@@ -113,6 +118,13 @@ table of content:
           {tasks.map((task) => (
       <h3 key={task.id}>{task.text}</h3>
       ))}
+
+
+      setTasks(tasks.map((task) =>
+        task.id === id ? { ...task, reminder:
+        !task.reminder} : task
+        )
+      )
 5. use hook
         import { useState } from 'react'
         const [tasks, setTasks] =useState([])    -> setTasks is used to change tasks
@@ -129,7 +141,7 @@ table of content:
 11. add and close the part of addTask and change the color of the btn
 12. production build (npm)
 13. json server (mock up  backend)
-    npm install -g json-server
+    npm install -g json-server                    ->  "json-server": pop up in packkage.json
     
     package.json:
 
@@ -143,5 +155,87 @@ table of content:
 
   create db.json
   npm run server (airply is 5000)
+  npm start      -> run react dev server
 
--1:23:22
+http://localhost:5000/tasks
+
+14. fetch data from db.json and display them
+
+        step1: fetch task
+
+        //takes in an arrow function, fetch api, asycn away
+        useEffect(( )=>{
+            const fetchTasks = async () => {
+            const res = await fetch('http://localhost:5000/tasks')
+            const data = await res.json()
+
+            console.log(data)
+            }
+
+            fetchTasks()
+        }, [])
+
+        //,[] -> dependency array -> avalue run, something change
+
+  step 2 take out fetchTasks
+        //takes in an arrow function, fetch api, asycn away
+        useEffect(( )=>{
+            const getTasks = async () =>{
+            const tasksFromServer = await fetchTasks()
+            setTasks(tasksFromServer)
+            }
+
+            getTasks()
+        }, [])
+
+
+        // Fetch Tasks
+
+        const fetchTasks = async () => {
+            const res = await fetch('http://localhost:5000/tasks')
+            const data = await res.json()
+
+            return data
+        }
+
+15. delete from backend
+
+    //Delete Task
+    const deleteTask = async (id) =>{
+      await fetch(`http://localhost:5000/tasks/${id},`, {
+        method: 'DELETE'
+      }) //second arugument - specifice the metho
+      //console.log('delte',id)
+      setTasks(tasks.filter((task) => task.id !== id))
+    }
+16. add tasks
+17. set remind
+18. Routing 
+
+no routing in the core library  
+
+ % npm i react-router -dom   -> show up in package.json
+
+
+
+19. Add a footer -> link to about page with about component
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom' // to use router we need to wrap everything in output
+
+return(<Router></Router>)
+
+Router -> Routes -> Route
+
+20. Making button show only in the/ page
+import {useLocation} from 'react-router-dom' //look at the route we are currently on
+  const location = useLocation() //access location.pathname
+
+  return (
+    <div className="header">
+        <h1>{title}</h1>
+        {location.pathname === '/' && <Button 
+        color={showAdd? 'red':'green'}
+        text={showAdd? 'Close' : 'Add'}
+        onClick={onAdd}/>}
+
+
+    </div>
