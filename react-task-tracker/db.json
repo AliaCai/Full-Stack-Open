@@ -29,6 +29,12 @@
       "text": "Beed",
       "day": "Wednesday",
       "reminder": true
+    },
+    {
+      "id": "ed44",
+      "text": "hmmm",
+      "day": "Thursday",
+      "reminder": true
     }
   ]
 }
