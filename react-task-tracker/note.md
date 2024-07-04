@@ -84,7 +84,7 @@ export default class Header extends React.Component{
 
 
 4.terminal
- % npx react-create-app (run create-react-app rather than dwloading it)
+ % npx create-react-app (run create-react-app rather than dwloading it)
  % cd react-task-tracker
  % code . (open vs code in current widown)
  % npm i react-icons
