@@ -77,3 +77,6 @@ do npm install -> recreate node modules with everything inside
 3. filesystem module (fs module) ("import it?")  -> Create folder, file, rename, read, rewrite...append
 4. os module -> envorpnemtn, operating system -> hardware, memory, core
 5. URL modules
+
+
+45:10 https://www.youtube.com/watch?v=fBNz5xF-Kx4
