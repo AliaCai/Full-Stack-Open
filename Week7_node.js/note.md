@@ -72,3 +72,8 @@ do npm install -> recreate node modules with everything inside
 
 >node xxx (eg.INDEX/INDEX.JS)
 
+1. making class modules 
+2. differnt __dirame and __filename combo
+3. filesystem module (fs module) ("import it?")  -> Create folder, file, rename, read, rewrite...append
+4. os module -> envorpnemtn, operating system -> hardware, memory, core
+5. URL modules
