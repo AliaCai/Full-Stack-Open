@@ -57,3 +57,18 @@ enter
 type in js
 >.exist TO EXIT
 
+
+npm insta xxx -> XXX SHOW IN DEPENDENCY (JSON)
+dev dependency -> dependency need for develppmend 
+nodemon -> dont restart my server
+>npm install -D nodemon
+
+
+package-lock.json -> keep track of the dependency with versions 
+-----------------------------------
+never depoly node modues to host
+do npm install -> recreate node modules with everything inside
+------------------------------------
+
+>node xxx (eg.INDEX/INDEX.JS)
+
