@@ -13,6 +13,16 @@ console.log(myUrl.hostname);
 
 //Pathname
 console.log(myUrl.pathname);
+
 //Serialized query
 console.log(myUrl.search);//everything after question mark
 
+//create an object: Params object
+console.log(myUrl.searchParams);//URLSearchParams { 'id' => '100', 'status' => 'active' }
+
+//Add param
+myUrl.searchParams.append('abc', '123');
+console.log(myUrl.searchParams);
+
+//Loop through params
+myUrl.searchParams.forEach((value, name) => console.log(`${name} : ${value}`)); //give each parameter pair

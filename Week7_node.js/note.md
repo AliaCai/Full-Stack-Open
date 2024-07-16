@@ -80,3 +80,20 @@ do npm install -> recreate node modules with everything inside
 
 
 45:10 https://www.youtube.com/watch?v=fBNz5xF-Kx4
+
+after running http_demo
+>comand+c to go back
+
+we ddi not create nodemon globally thats why it does not work -> npm script
+
+
+pacakge.json
+
+  "scripts": {
+    "test": "node index",
+    "dev": "nodemon index" 
+  },
+
+  >npm run dev
+
+  DO NOT NEED TO KEEP RESTARING 
