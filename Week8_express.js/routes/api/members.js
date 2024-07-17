@@ -6,7 +6,7 @@ const uuid=require('uuid');
 //use router. instead of app. to handel request
 
 
-
+//just in memory
 
 //3.0 /GETS ALL MEMBERS: postman: Get: http://localhost:5000/api/members
 router.get('/', (req, res) =>{///api/members
@@ -51,11 +51,12 @@ router.post('/', (req, res) => {
     members.push(newMember);//added to array
 
     //send back respond eg:
-    res.json(members);
+    res.json(members); //show a json page -. need to make api work
+    //res.redirect('/');
 
 });//need to set up in index.js too
 
-//8.0 Update Mamber
+//8.0 Update Member
 // Put resuest
 router.put('/:id', (req, res)=>{
 
@@ -70,8 +71,27 @@ router.put('/:id', (req, res)=>{
         if(member.id === parseInt(req.params.id)){
             member.name= updMember.name ? updMember.name :member.name;
             member.email=updMember.email ? updMember.email:member.email;
+
+            //send back a response
+            res.json({msg: 'Member updated', member:member}); //member;member=member;
         }
        });
+    }else{
+        //status: 400 -> bad request -> does not give what we want
+        res.status(400).json({meg: `No member with the id of ${req.params.id}`});
+    }
+})
+
+
+//9.0 Delete member
+router.delete('/:id', (req, res)=>{
+
+    const found = members.some(member => member.id === parseInt(req.params.id));
+
+    if (found){
+        res.json({
+            msg: 'Member deleted', 
+            members: members.filter(member => member.id !== parseInt(req.params.id))});//filter out the one
     }else{
         //status: 400 -> bad request -> does not give what we want
         res.status(400).json({meg: `No member with the id of ${req.params.id}`});

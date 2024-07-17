@@ -4,8 +4,9 @@
 const express=require('express');
 const path=require('path');
 const logger=require('./middleware/logger');
-
+const exphbs=require('express-handlebars');
 const app = express();//initialized a var called app with express
+const members=require('./Members');
 //app now has a bunch of properties and methods and one of them is listen
 
 
@@ -32,9 +33,30 @@ app.get('/', (req,res) => {
 
 //5.0 GET SINGLE MAMBER (getting by id) -> /:id url param, getting be req
 
+
+//10.0 Render(mildeware -> know use handelbars) 
+//Handlebars middleware
+app.engine('handlebars', exphbs.engine); //set template engine to handeeabrs and pass in exphbs
+app.set('view engine', 'handlebars');//setupview engine
+
+
+
 //7.0 CREATE MEMBER (BODY PARSER MIDDLEWARE)
 app.use(express.json());//handel row jason
 app.use(express.urlencoded({extended:false}));//handel form submission, hanel url encoded data
+
+//------------------------------------------
+//10.1Homepage Route
+app.get('/', (req,res)=>{
+    res.render('index', {
+        //send in data
+        title:'Member app',
+        members
+    });//want to render index view
+})
+
+//show mwmbers because homepage route is ahead of static ones (usually have 1)
+//------------------------------------------
 
 //2. SET STATIC FOLDE 
 //-> no need to deal with content type/laoding htmo, css file like node

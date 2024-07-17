@@ -86,6 +86,8 @@ package.json
 5. member api routes
 6. add a member (post)
 7. update a member
+8. delete member
+9. renderinf template using template engine (handlebars)
 
 
 midleware function that has access to req and res -> you can change/add things
@@ -103,3 +105,11 @@ routes may serve service template
 
 mongodb:
 install mogu -> connect to database -> members.save(newMember) instead of push
+
+>npm i express-handlebars
+[documentary](https://github.com/express-handlebars/express-handlebars)
+
+
+passportlocal
+//www.passportjs.org/packages
+//not built in authentication
