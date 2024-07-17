@@ -97,3 +97,17 @@ pacakge.json
   >npm run dev
 
   DO NOT NEED TO KEEP RESTARING 
+  
+
+>heroku --version
+>heroku login
+
+dont push node.moduels and refernece and anything like that
+
+
+nah i skip the heroku part
+
+-----------------------------------------------------------------------
+run:
+>node index
+>npm run dev (need to set up package.json first)

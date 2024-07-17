@@ -23,7 +23,7 @@ logger.log('Hello');//send a message
 
 //load basic webpage
 const http = require('http');
-const path = require('path');
+const path = require("path");
 const fs = require('fs');
 
 const server = http.createServer((req,res)=>{
@@ -83,9 +83,11 @@ if(req.url === '/about'){
     //build file path
     let filePath = path.join(
         __dirname, 
-        'public',
-        req.url==='/' ? 'index.html':req.url
+        "public",
+        req.url=== "/" ? "index.html":req.url
     );
+
+    console.log(filePath);
 
         //console.log(filePath);
         //res.end();
@@ -127,7 +129,7 @@ if(req.url === '/about'){
                 fs.readFile(path.join(__dirname, 'public', '404.html'),
                 (err, content)=>{
                 res.writeHead(200, { 'Content-Type':'text/html'});
-                res.end(content,'uft8');
+                res.end(content,'utf8'); //Don't type it wrong anymore
             })
            
             }else{
