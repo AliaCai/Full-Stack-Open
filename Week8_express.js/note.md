@@ -84,6 +84,9 @@ package.json
 3. getting url with name
 4. getting a single meber through id (return meg if id dne)
 5. member api routes
+6. add a member (post)
+7. update a member
+
 
 midleware function that has access to req and res -> you can change/add things
 midlesware: res, req, next
@@ -93,3 +96,10 @@ midlesware: res, req, next
 
 not all routes be api sercing json
 routes may serve service template
+
+>npm i uuid
+
+
+
+mongodb:
+install mogu -> connect to database -> members.save(newMember) instead of push

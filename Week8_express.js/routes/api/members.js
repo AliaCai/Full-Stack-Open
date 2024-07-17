@@ -1,6 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const members=require('../../Members');
+const uuid=require('uuid');
 
 //use router. instead of app. to handel request
 
@@ -30,12 +31,52 @@ router.get('/:id', (req, res)=>{///api/members
 })
 
 
-//7.
+//7.0 CREATE MEMBER (BODY PARSER MIDDLEWARE)
 //create something on the srever / adding to the server -> post request (eg. fetch api, form submission)
 //we can use the same route as long as it is different method (eg. get, post)
 router.post('/', (req, res) => {
-    res.send(req.body);
-});
+    //res.send(req.body);
+    const newMember = {//mongodb, a lot of data base create id for you
+        //use uuid to generate id here
+        id: uuid.v4(),
+        name: req.body.name,
+        email:req.body.email,
+        status:'active'
+    };
+
+    if(!newMember.name || !newMember.email){
+        return res.status(400).json({meg: 'Please include a name and email'}); //dont do else and dont use return -> err that says header has already sent
+    }
+
+    members.push(newMember);//added to array
+
+    //send back respond eg:
+    res.json(members);
+
+});//need to set up in index.js too
+
+//8.0 Update Mamber
+// Put resuest
+router.put('/:id', (req, res)=>{
+
+    const found = members.some(member => member.id === parseInt(req.params.id));//check it exists
+
+
+    if (found){
+       const updMember=req.body;
+
+       //loop through the id we have, if have -> the one updated
+       members.forEach(member => {
+        if(member.id === parseInt(req.params.id)){
+            member.name= updMember.name ? updMember.name :member.name;
+            member.email=updMember.email ? updMember.email:member.email;
+        }
+       });
+    }else{
+        //status: 400 -> bad request -> does not give what we want
+        res.status(400).json({meg: `No member with the id of ${req.params.id}`});
+    }
+})
 
 
 /*index.js-----------------------------------------------------------------------------------------------------------------------
