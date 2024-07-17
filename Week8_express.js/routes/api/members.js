@@ -51,8 +51,8 @@ router.post('/', (req, res) => {
     members.push(newMember);//added to array
 
     //send back respond eg:
-    res.json(members); //show a json page -. need to make api work
-    //res.redirect('/');
+    //res.json(members); //show a json page -. need to make api work
+    res.redirect('/');
 
 });//need to set up in index.js too
 
@@ -111,7 +111,7 @@ app.get('/api/members', (req, res) =>{
 
 
 
-//5.0 GET SINGLE MAMBER (getting by id) -> /:id url param, getting be req
+//5.0 GET SINGLE MAMBER (getng by id) -> /:id url param, getting be req
 app.get('/api/members/:id', (req, res)=>{
     //res.send(req.params.id); //return id
 

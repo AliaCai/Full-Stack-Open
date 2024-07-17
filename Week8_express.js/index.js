@@ -36,7 +36,7 @@ app.get('/', (req,res) => {
 
 //10.0 Render(mildeware -> know use handelbars) 
 //Handlebars middleware
-app.engine('handlebars', exphbs.engine); //set template engine to handeeabrs and pass in exphbs
+app.engine('handlebars', exphbs.engine({defaultLayout:'main'})); //set template engine to handeeabrs and pass in exphbs
 app.set('view engine', 'handlebars');//setupview engine
 
 
@@ -50,7 +50,7 @@ app.use(express.urlencoded({extended:false}));//handel form submission, hanel ur
 app.get('/', (req,res)=>{
     res.render('index', {
         //send in data
-        title:'Member app',
+        title:'Member App',
         members
     });//want to render index view
 })
