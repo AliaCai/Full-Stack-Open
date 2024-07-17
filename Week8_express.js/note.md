@@ -3,6 +3,11 @@ EXPRESS
 DOCUMENTARY: https://expressjs.com/en/api.html
 Express is a node js web application framework 
 
+
+How to use gitignore to not include node modules: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+git rm -r --cached FILENAME <Week8_express.js/node_modules>
+
+
 - express is a web framework for node.js (unperformance, not high level)
 - Express is a "server-side" or "back-end" {react, angular -> client side framwork} 
 - -> used in combination with other framework
