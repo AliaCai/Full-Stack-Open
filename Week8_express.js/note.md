@@ -82,9 +82,14 @@ package.json
 1. Create a router -> write in html/read a file
 2. make public static foler
 3. getting url with name
-4. getting a single meber
+4. getting a single meber through id (return meg if id dne)
+5. member api routes
 
 midleware function that has access to req and res -> you can change/add things
 midlesware: res, req, next
 
 >npm i moment [DEAL WITH DATE]
+
+
+not all routes be api sercing json
+routes may serve service template

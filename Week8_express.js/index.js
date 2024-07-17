@@ -3,22 +3,17 @@
 //create simple express server
 const express=require('express');
 const path=require('path');
-const members=require('./Members');
-
 const logger=require('./middleware/logger');
 
 const app = express();//initialized a var called app with express
 //app now has a bunch of properties and methods and one of them is listen
 
 
-//3.0 SImple rest api (not deal with databse, hardbode array)
+//3.0 GETS ALL MEMBERS: postman: Get: http://localhost:5000/api/members
 
-//GETS ALL MEMBERS: postman: Get: http://localhost:5000/api/members
-app.get('/api/members', (req, res) =>{
-    res.json(members);//do not need to strinfy it althought that is js object because this will take care of it
-});
+
 /*
-//1. CREATE A ROUTE
+//1.0 CREATE A ROUTE
 //go to a webpage
 //eg. app.get('/', function(req,res){}); or
 app.get('/', (req,res) => {
@@ -36,10 +31,10 @@ app.get('/', (req,res) => {
 //app.use(logger);
 
 //5.0 GET SINGLE MAMBER (getting by id) -> /:id url param, getting be req
-app.get('/api/members/:id', (req, res)=>{
-    res.send(req.params.id);
-})
 
+//7.0 CREATE MEMBER (BODY PARSER MIDDLEWARE)
+app.use(express.json());//handel row jason
+app.use(express.urlencoded({extended:false}));//handel form submission, hanel url encoded data
 
 //2. SET STATIC FOLDE 
 //-> no need to deal with content type/laoding htmo, css file like node
@@ -48,6 +43,13 @@ app.use(express.static(path.join(__dirname,'public')));//use is a method when yo
 //setting public as satic folder
 
 const PORT = process.env.PORT || 5000; //look at the environment variable or 5000 because the server is going to have the port number is environment var and run 5000 if it is not possible
+
+
+//6.0 Member api routes
+//import member router  {/api/members -> parent route} require(file)
+app.use('/api/members', require('./routes/api/members'));
+
+
 
 
 app.listen(PORT, ()=>console.log(`Server started on port ${PORT}`));//callback is a section param
