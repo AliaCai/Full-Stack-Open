@@ -22,7 +22,7 @@ app.set('view-engine','ejs')//our view engine set to ejs and we can ejs in our t
 app.use(express.urlencoded({extended: false }))//getting infromation from form -> tell application is to take from from email and password and we want to build access inside request variable, in post methd
 app.use(flash());
 app.use(session({
-    secret: process.env,//kety we want to keep secrete, enctypt all the information for us
+    secret: process.env.SESSION_SECRET,//kety we want to keep secrete, enctypt all the information for us //SESSION_SECRET -> name of the session key -> want to random generalize a long one
     resave:false,//should we resave our session variable if nothing changes 
     saveUninitialized:false// do you want to save an empty value in the session if there is no value
 }));
