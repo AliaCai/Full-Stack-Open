@@ -79,7 +79,10 @@ app.post('/register', checkNotAuthenticated, async(req,res)=>{
 
 //logout, cannot directly do delete function on html (need a form + POST)
 app.delete('/logout', (req,res)=>{ //use methodOverride library
-    req.logOut() //Passport set this for us automatically -> clear session+log user out
+    req.logOut((err)=>{
+         if (err) {
+            throw err
+         }}) //Passport set this for us automatically -> clear session+log user out
     res.redirect('/login')
 })
 //middleware function //next -> we call we are done, finish authentication
