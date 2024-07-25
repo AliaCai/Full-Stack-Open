@@ -26,3 +26,10 @@ package.json:
 
 
   -27:47 https://www.youtube.com/watch?v=-RCnNyD0L-s&t=1666s
+
+  adding serialization to make the page can be processed to homepage after logging in
+  customized homepage name
+  checkAuenticated, checkNotAuthenticated
+  log out user
+
+  >npm i method-override [OVVERIDE OUR METHOD THAT WE ARE USING, WE CAN CALL IT DELETE RATHER DELETE]

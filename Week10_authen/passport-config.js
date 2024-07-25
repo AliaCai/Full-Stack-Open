@@ -3,7 +3,7 @@ const bcrypt=require('bcryptjs')
 
 
 
-function initialize(passport, getUserByEmail){//(name, function to authenticate user)
+function initialize(passport, getUserByEmail, getUserById){//(name, function to authenticate user)
 
     const authenticateUser = async (email, password, done) =>{
         const user = getUserByEmail(email)
@@ -25,11 +25,12 @@ function initialize(passport, getUserByEmail){//(name, function to authenticate 
 
 
     passport.use(new LocalStrategy({usernameField: 'email'} , authenticateUser))
-    passport.serializeUser((user, done)=>{ //serialize our user to store inside the session
+    passport.serializeUser((user, done)=>{ done(null, user.id)//serialize our user to store inside the session
 
     })
     passport.deserializeUser((id, done)=>{ //seroalize our user as a single id (?)
 
+       return done(null, getUserById(id))
     })
 
 }

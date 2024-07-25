@@ -8,12 +8,14 @@ const bcrypt=require('bcryptjs')//have access to that variable
 const passport=require('passport')//'passport' is the library we installed
 const flash=require('express-flash')
 const session=require('express-session')
-
+const methodOverride = require('method-override')
 
 const initializePassport = require('./passport-config');
 initializePassport(
     passport, 
-    email =>  users.find(user=>user.email===email));//passport is the var
+    email =>  users.find(user=>user.email===email),
+    id => users.find(user=>user.id===id)
+);//passport is the var
 
 const users=[]
 
@@ -28,32 +30,32 @@ app.use(session({
 }));
 app.use(passport.initialize())//set up some basic for us
 app.use(passport.session())//store the variables to be presisted in the enteire session user have //it is going to work with app.use(session()) above
-
+app.use(methodOverride('_method')) //this _method is what we use to ovveride method (index.ejs)
 
 //not setup route: -> show Cannot GET/
 
 
-app.get('/', (req, res)=>{
-    res.render('index.ejs', {name:'Kyle'})
+app.get('/', checkAuthenticated,(req, res)=>{
+    res.render('index.ejs', {name:req.user.name})//req.user is the actual user we are using
 })
 
-app.get('/login', (req,res)=>{
+app.get('/login', checkNotAuthenticated, (req,res)=>{
     res.render('login.ejs')
 })
 
 //first ->local strategy. second -> a list of options we want to modify
-app.post('/login', passport.authenticate('local', {
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect:'/',
     failureRedirect:'/login',
     failureFlash:true//let us ahve a flash message (display to the user) === to msg from paspport-config.js
 }))
 
-app.get('/register', (req,res)=>{
+app.get('/register',checkNotAuthenticated, (req,res)=>{
     console.log('run');
     res.render('register.ejs')
 })
 
-app.post('/register', async(req,res)=>{
+app.post('/register', checkNotAuthenticated, async(req,res)=>{
     //name field: req.body.name (this name corresponf to field after name="")
     //bcrype -> library
     try {
@@ -73,4 +75,27 @@ app.post('/register', async(req,res)=>{
     }
     console.log(users)//every time we save application and reload, this user will rest -> bc not db
 })
+
+
+//logout, cannot directly do delete function on html (need a form + POST)
+app.delete('/logout', (req,res)=>{ //use methodOverride library
+    req.logOut() //Passport set this for us automatically -> clear session+log user out
+    res.redirect('/login')
+})
+//middleware function //next -> we call we are done, finish authentication
+function checkAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next() //just go to next
+    }
+
+    res.redirect('/login')
+}
+
+//not go back to login after loged in successfullt
+function checkNotAuthenticated(req,res,next){
+    if(req.isAuthenticated()){
+        return res.redirect('/')
+    }
+    next()
+}
 app.listen(3000)
