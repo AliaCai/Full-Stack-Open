@@ -103,3 +103,5 @@ inside .env variable = mongodb atlas string
 >cd routes
 > touch exercises.js
 > touch users.js
+
+42:40 https://youtu.be/7CqJlxBYj-M?si=4XUEIUEIoeNnhwjQ

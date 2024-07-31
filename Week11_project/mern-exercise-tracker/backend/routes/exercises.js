@@ -42,6 +42,7 @@ router.route('/:id').delete((req,res)=>{
     .catch(err => err.status(400).json('Error'+err));
 })
 
+/* my code but wrong lol | issue: will change the id
 router.route('/:id').put((req,res)=>{
     const username = req.body.username;
     const description = req.body.description;
@@ -58,6 +59,23 @@ router.route('/:id').put((req,res)=>{
     .then(()=> res.json(req.params.id + ' is updated'))
     .catch(err => res.status(400).json('Error'+ err));
 });
+*/
+
+router.route('/:id').put((req,res)=>{ // (/updated/:id), post
+    Exercise.findById(req.params.id)
+    .then(exercise=>{
+        exercise.username=req.body.username;
+        exercise.description=req.body.description;
+        exercise.duration = Number(req.body.duration);
+        exercise.date=Date.parse(req.body.date);
+
+        exercise.save()
+        .then(() => res.json('Exercise updated'))
+        .catch(err => res.status(400).json('Error'+err));
+    })
+    .catch(err=> res.status(400).json('Error'+err));
+});
+
 
 
 
