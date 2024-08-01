@@ -70,6 +70,7 @@ ObjectId("UNIX Timestamp + Random Value + Count)
 
 Our step: 1. create backend + connect to mongodb atlas, google cloud + react
 
+**express**
 >mkdir backend 
 >cd backend
 > npm init -y
@@ -105,3 +106,42 @@ inside .env variable = mongodb atlas string
 > touch users.js
 
 42:40 https://youtu.be/7CqJlxBYj-M?si=4XUEIUEIoeNnhwjQ
+
+
+
+**react**
+**go to /public/index.html**
+- decalrative, efficient, flexible js library
+- build based on components (tell react what we want to see on the screen)
+- when date changed, react will efficiently reupdate the component pass
+- component(props) -> heriachy of views to display through the render method
+- jsx (convert to html when it goes through preprocessing) (come with full power of js in {})
+
+render method return the description you want to see on the screen
+```
+class ShoppingList extends React.Component {
+    render () {
+        return (
+            <div className = "shopping-list">
+                <h1> Shopping List for {this.props.name} </h1>
+                <ul>
+                    <li>Cereal</li>
+                    <li>Milk</li>
+                    <li>Bananas</li>
+                </ul>
+            </div>
+        
+        );
+    }
+}
+// Example usage: <ShoppingList name="Beau">
+```
+
+
+> npm start
+> npm install bootstrap
+> npm install react-router-dom [make it easier to route differet url to different component]
+
+5. go to src to create components folder and component(...component.js) inside
+
+55:31 https://youtu.be/7CqJlxBYj-M?si=4XUEIUEIoeNnhwjQ [start to set up navbar.component.js]
