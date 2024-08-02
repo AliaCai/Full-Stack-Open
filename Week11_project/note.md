@@ -145,3 +145,24 @@ class ShoppingList extends React.Component {
 5. go to src to create components folder and component(...component.js) inside
 
 55:31 https://youtu.be/7CqJlxBYj-M?si=4XUEIUEIoeNnhwjQ [start to set up navbar.component.js]
+
+
+6. create navbar.component.js first and other components later on
+
+'''
+//Basic component file
+
+
+import React, { Component } from 'react';
+
+export default class ExercisesList extends Component {
+    render () {
+        reuturn (
+            <div>
+                <p>You are on the Exercises List component!</p>
+            </div>
+        )
+    }
+}
+
+'''
