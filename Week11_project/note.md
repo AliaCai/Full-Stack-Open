@@ -167,6 +167,8 @@ export default class ExercisesList extends Component {
 
 '''
 
+
+
 7. connect components to app.js
 
 -1:13:42
