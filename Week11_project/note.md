@@ -174,3 +174,7 @@ export default class ExercisesList extends Component {
 7. connect components to app.js
 
 -1:13:42
+
+>npm install react-datepicker
+
+-1:14:31

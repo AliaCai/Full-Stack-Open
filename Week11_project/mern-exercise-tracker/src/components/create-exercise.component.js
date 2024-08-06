@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";//import the styling of the datepicker
 //add exercise into database
 
 export default class CreateExercise extends Component {
@@ -91,7 +93,7 @@ export default class CreateExercise extends Component {
     //FORM --------------------------------------------------------------------------------
     //js in {}
     //select: dropdown menu -> this.state.users comes form mongodb -> map (each element) -> option: selectbox
-//add date picker component
+//add date picker component 
             <div>
                 <h3>Create New Exercise Log</h3>
                 <form onSubmit={this.onSubmit}>
@@ -117,7 +119,7 @@ export default class CreateExercise extends Component {
                     <div className='form-group'>
                         <label>Description</label>
                         <input type="text"
-                                required
+//required
                                 className='form-control'
                                 value={this.state.descritopn}
                                 onChange={this.onChangeDescription}
@@ -137,7 +139,7 @@ export default class CreateExercise extends Component {
                     <div className="form-group">
                         <label>Date: </label>
                         <div>
-                            <Datepicker
+                            <DatePicker
                                 selected={this.state.date}
                                 onChange={this.onChangeDate}
                             />
