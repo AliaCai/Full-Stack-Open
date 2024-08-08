@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";//import the styling of the datepicker
+import axios from 'axios';
+
 //add exercise into database
 
 export default class CreateExercise extends Component {
@@ -33,10 +35,23 @@ export default class CreateExercise extends Component {
     }
 
     //REACT LIVE CYCLE METHOD -> react will automatically different point---------------------------------------
+    //do with drop down menu
     componentDidMount(){//auto be called right before anything displays on the page
+
+        /*
         this.setState({//test user
             users: ['test user'],
             username: 'test user'//auto select the first [erson in the drop down menu ]
+        })
+            */
+        axios.get('http://localhost:5000/users/')
+        .then(response =>{
+            if(response.data.length > 0){//check at least 1 user in the databse
+            this.setState({
+                users:response.data.map(user=> user.username),//data in array, only return the username fild
+                username:response.data[0].username //automatically set as the first users' name
+            })
+            }
         })
     }
 
@@ -83,7 +98,10 @@ export default class CreateExercise extends Component {
             duration:this.state.duration,
             date:this.state.date
         }
-        //console.log(exercise) //does not load because redirect to another page
+        console.log(exercise) //does not load because redirect to another page
+        axios.post('http://localhost:5000/exercises/add',exercise)
+        .then(res => console.log(res.data));
+
         window.location = '/';//once submited -> take back to homepage (list of exercises)
         
 

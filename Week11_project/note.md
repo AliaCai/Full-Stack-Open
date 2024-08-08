@@ -178,3 +178,19 @@ export default class ExercisesList extends Component {
 >npm install react-datepicker
 
 -1:14:31
+
+
+8. connect front end to back end
+- front end to send http request to the server endpoint in the backend
+- asiox library
+
+>npm install axios
+
+portal: 5000 backend
+portal: 3000 frontend
+
+
+
+----------------------------
+backend: >nodemon server
+front end: >npm start
