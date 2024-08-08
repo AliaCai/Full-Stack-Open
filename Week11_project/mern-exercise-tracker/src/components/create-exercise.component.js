@@ -17,12 +17,13 @@ export default class CreateExercise extends Component {
         this.onChangeDescription=this.onChangeDescription.bind(this);
         this.onChangeDuration=this.onChangeDuration.bind(this);
         this.onChangeDate=this.onChangeDate.bind(this);
+        this.onSubmit=this.onSubmit.bind(this);
 
 
         //set initial state of the component by assigning something into this.state
         //we need properties of the state correspond to the filed of mongodb document
         //state is how we crete VAR in react (NO let name = "beau")
-        this.state ={
+        this.state = {
             username:'',
             descritopn: '',
             duration: 0,
@@ -64,7 +65,6 @@ export default class CreateExercise extends Component {
 
     //this one is diff because we use calender to select date here
     onChangeDate(date) {
-
         this.setState({
             date: date
         });
@@ -73,18 +73,20 @@ export default class CreateExercise extends Component {
 
     //INSIDE A SINGLE METHOD: CAN CREATE VARS ONLY USED WITHIN THE METHOD
     onSubmit(e) {
+
         e.preventDefault();//prevent defuakt html form submite behaviour
 
+        
         const exercise = {
             username:this.state.username,
             description:this.state.descritopn,
             duration:this.state.duration,
             date:this.state.date
         }
-
-        console.log(exercise)
-
+        //console.log(exercise) //does not load because redirect to another page
         window.location = '/';//once submited -> take back to homepage (list of exercises)
+        
+
     }
 
     render () {
@@ -119,9 +121,9 @@ export default class CreateExercise extends Component {
                     <div className='form-group'>
                         <label>Description</label>
                         <input type="text"
-//required
+                                required
                                 className='form-control'
-                                value={this.state.descritopn}
+                                value={this.state.description}
                                 onChange={this.onChangeDescription}
                             />
                     </div>
@@ -135,6 +137,7 @@ export default class CreateExercise extends Component {
                                onChange={this.onChangeDuration}
                             />
                     </div>
+
 
                     <div className="form-group">
                         <label>Date: </label>
