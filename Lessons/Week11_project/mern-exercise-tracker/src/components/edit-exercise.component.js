@@ -95,7 +95,7 @@ export default class EditExercise extends Component {
         }
         console.log(exercise);
         console.log(arr[arr.length-1]);
-        axios.post('http://localhost:5000/exercises/update/'+arr[arr.length-1],exercise)
+        axios.put('http://localhost:5000/exercises/'+arr[arr.length-1],exercise)
         .then(res => console.log(res.data));
 
         window.location = '/';//once submited -> take back to homepage (list of exercises)
