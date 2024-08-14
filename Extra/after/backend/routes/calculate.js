@@ -5,12 +5,10 @@ const Equation = require('../models/equation.model');
 router.route('/').get((req,res) => {
     Equation.find()
     .then(equations => res.json(equations))
-    .catch(err=>res.status(400).json({err: err}))
+    .catch(err=>res.status(400).json({error: err}))
 })
 
-//NEXT STEP: calculate to save the change
-//and then go to library too add, change, delete
-//and then react
+
 
 function addEqu (number1, number2, number3, sign, res){
 

@@ -23,10 +23,10 @@ connection.once('open', ()=>{
 //--------------------------------- LOADING ROUTES ---------------------------------
 
 const calculateRoute=require('./routes/calculate');
-//const libraryRoute=require('./routes/library');
+const libraryRoute=require('./routes/library');
 
 app.use('/calculate', calculateRoute);
-//app.use('/library', libraryRoute);
+app.use('/library', libraryRoute);
 
 
 app.listen(port, ()=> console.log(`Port run on ${port}`));
