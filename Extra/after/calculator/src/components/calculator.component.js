@@ -15,6 +15,7 @@ export default class Calculator extends Component{
         number3: NaN,
         sign:''
     }
+
    }
 
    onChangeNumber1(e){
@@ -54,10 +55,35 @@ export default class Calculator extends Component{
 
     render(){
     return(
-        <div>
+        <div class="text-center form-control">
             <h1>calculator</h1>
             <form>
+                <input 
+                        type="text" 
+                        required 
+                        value={this.state.number1} 
+                        onChange={this.onChangeNumber1} />
+    
+                    <select className='btn'
+                            required
+                             value={this.state.sign}
+                             onChange={this.onChangeSign}>{
 
+                                ['+', '-', '*','/'].map((sign)=>
+                                <option key={sign} value={sign}>{sign}</option>)
+                    }</select>
+
+                    <input 
+                            type="text" 
+                            required 
+                            value={this.state.number2} 
+                            onChange={this.onChangeNumber2}/>
+
+                    <input class='btn'
+                            type="submit" 
+                            value="=" />
+                    <input type="submite" require value={this.state.number3} />
+                
             </form>
         </div>
 
