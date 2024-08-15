@@ -49,7 +49,7 @@ router.route('/:id').put((req,res)=>{
 
 })
 /*
-//Another way to update using updateOne()
+//2nd way to update using updateOne()
 router.route('/:id').put((req,res)=>{
 
 
