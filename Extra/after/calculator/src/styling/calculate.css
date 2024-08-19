@@ -1,0 +1,40 @@
+
+.form{
+   text-align: center;
+   margin-top: 10%;
+   margin-bottom: 10%;
+   input{
+    margin: 4em;
+   }
+
+}
+.box{
+    background-color: #FBECEC;
+    width: 15em;
+    padding: 3em;
+    border:0;
+    box-shadow: rgb(208, 184, 184) 0.5em 0.5em;
+    border-radius: 1em;
+    font-weight:900;
+    font-size: large;
+}
+
+.submit{
+    background-color: #FBC1C1;
+    width:5em;
+    padding: 2.7em;
+    border:0;
+    box-shadow: rgb(192, 159, 159) 0.5em 0.5em;
+    border-radius: 1em;
+}
+
+.result{
+    background-color: #FBECEC;
+    width: 15em;
+    padding: 3em;
+    border:0;
+    box-shadow: rgb(208, 184, 184) 0.5em 0.5em;
+    border-radius: 1em;
+    font-weight:900;
+    font-size: large;
+}

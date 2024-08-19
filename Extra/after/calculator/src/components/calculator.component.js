@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styling/calculate.css';
 import axios from 'axios';
 
 export default class Calculator extends Component{
@@ -59,16 +60,16 @@ export default class Calculator extends Component{
 
     render(){
     return(
-        <div className="text-center form-control">
-            <h1>CALCULATOR</h1>
+        <div class='form'>
+
             <form onSubmit={this.onSubmit}>
-                <input 
+                <input class='box'
                         type="text" 
                         required 
                         value={this.state.number1} 
                         onChange={this.onChangeNumber1} />
     
-                    <select className='btn'
+                    <select class='btn'
                             required
                              value={this.state.sign}
                              onChange={this.onChangeSign}>{
@@ -77,17 +78,17 @@ export default class Calculator extends Component{
                                 <option key={sign} value={sign==='/'?'divide':sign}>{sign}</option>)
                     }</select>
 
-                    <input 
+                    <input class='box'
                             type="text" 
                             required 
                             value={this.state.number2} 
                             onChange={this.onChangeNumber2}/>
 
-                    <input className='btn'
+                    <input class='submit'
                             type="submit" 
                             value="=" />
                     
-                    <label>{this.state.number3}</label>
+                    <label class='result'>{this.state.number3}</label>
                 
             </form>
         </div>
