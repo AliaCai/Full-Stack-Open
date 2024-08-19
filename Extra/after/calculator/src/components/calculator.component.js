@@ -82,7 +82,8 @@ export default class Calculator extends Component{
                     <input class='btn'
                             type="submit" 
                             value="=" />
-                    <input type="submite" require value={this.state.number3} />
+                    
+                    <label>{this.state.number3}</label>
                 
             </form>
         </div>
