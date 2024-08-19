@@ -20,9 +20,7 @@ function addEqu (number1, number2, number3, sign, res){
         });
 
     newEquation.save()
-    .then(()=>res.json(` ${number1} ${sign} ${number2} 
-                        is added at ${newEquation.createdAt} 
-                        and updated at ${newEquation.updatedAt}`))
+    .then(()=>res.json(` ${number3}`))
     .catch((err)=>res.status(400).json({error: err}));
 
 }

@@ -10,10 +10,10 @@ export default class Calculator extends Component{
     this.onChangeSign=this.onChangeSign.bind(this);
     this.onSubmit=this.onSubmit.bind(this);
     this.state={
-        number1:NaN,
-        number2: NaN,
-        number3: NaN,
-        sign:''
+        number1:0,
+        number2: 0,
+        number3: 0,
+        sign:'+'
     }
 
    }
@@ -40,24 +40,28 @@ export default class Calculator extends Component{
 
    onSubmit(e){
     e.preventDefault();
-    const {sign} = this.props.params;
-
+    const sign = this.state.sign;
     const calculate={
-        number1:this.state.number1,
-        number2:this.state.number2,
+        number1:Number(this.state.number1),
+        number2:Number(this.state.number2),
     }
-    axios.push('http://localhost:5000/calculate/'+sign, calculate)
-    .then(res=>console.log(res.data))
+
+    axios.post('http://localhost:5000/calculate/'+sign, calculate)
+    .then(res=>{console.log(res.data);
+                this.setState({
+                    number3:Number(res.data)
+                })})
     .catch(err=>console.log(err));
 
 
+    console.log("number3:",this.state.number3);
    }
 
     render(){
     return(
-        <div class="text-center form-control">
-            <h1>calculator</h1>
-            <form>
+        <div className="text-center form-control">
+            <h1>CALCULATOR</h1>
+            <form onSubmit={this.onSubmit}>
                 <input 
                         type="text" 
                         required 
@@ -70,7 +74,7 @@ export default class Calculator extends Component{
                              onChange={this.onChangeSign}>{
 
                                 ['+', '-', '*','/'].map((sign)=>
-                                <option key={sign} value={sign}>{sign}</option>)
+                                <option key={sign} value={sign==='/'?'divide':sign}>{sign}</option>)
                     }</select>
 
                     <input 
@@ -79,7 +83,7 @@ export default class Calculator extends Component{
                             value={this.state.number2} 
                             onChange={this.onChangeNumber2}/>
 
-                    <input class='btn'
+                    <input className='btn'
                             type="submit" 
                             value="=" />
                     
