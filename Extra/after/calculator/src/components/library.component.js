@@ -30,7 +30,7 @@ export default class Library extends Component{
         .catch(err=>console.log(err));
     }
 
-    equationList(){
+    equationList(){//this function does not run
         return this.state.equations.map(equ=>{
             return <h2>dpecial</h2>//<Equ euqation={equ} key={equ._id}/>
 
@@ -48,9 +48,11 @@ export default class Library extends Component{
                         <th>_</th>
                     </tr>
                     </thread>
+
                     <tbody>
-                    {this.equationList()}
+                    {this.equationList}
                     </tbody>
+
                 </table>
 
 
