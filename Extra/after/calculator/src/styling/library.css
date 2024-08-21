@@ -1,0 +1,54 @@
+.library{
+    background-color: #FBC1C1;
+    margin:10%;
+    margin-top: -7%;
+    padding:3%;
+    border-radius: 1em;
+    font-weight: 900;
+
+}
+ h2{
+    text-align: center;
+    color:white;
+    font-size: 3.5em;
+    padding-bottom: 3%;
+ }
+table{
+    border-collapse: collapse;
+    
+
+
+    tr{
+        border-bottom: 0.5em solid #FBC1C1;;
+        background-color: #FEEDED;
+        width: 100%;
+        color: rgb(149, 122, 122);
+    }
+    td{
+        padding: 2%;
+        margin-bottom: 1%;
+    }
+
+    .col1{
+        width: 90%;
+        padding-left: 3%;
+    }
+    .col2{
+        padding: 0;
+        width: 5%;
+        text-align: center;
+    }
+
+    .sep{
+        padding: 0;
+        text-align: center;
+    }
+
+    .col3{
+        padding: 0;
+        width:5%;
+        text-align: center;
+    }
+ 
+
+}
