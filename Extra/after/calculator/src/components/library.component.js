@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import '../styling/library.css'
+import {Link} from 'react-router-dom'
 
 
 const Equ = props =>(
@@ -9,7 +10,7 @@ const Equ = props =>(
         <td class='col1'>{props.equ.number1} {props.equ.sign=='divide'? '/': props.equ.sign} {props.equ.number2} = {props.equ.number3}</td>
         <td class='col2' onClick={()=>props.deleteEqu(props.equ._id)}>delete</td>
         <td class='sep'> | </td>
-        <td class = 'col3'>edit</td>
+        <td class = 'col3'><Link to={'/edit/'+props.key}>edit</Link></td>
     </tr>
 
 )

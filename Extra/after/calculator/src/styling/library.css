@@ -13,10 +13,18 @@
     font-size: 3.5em;
     padding-bottom: 3%;
  }
+
+     
+
+
 table{
     border-collapse: collapse;
-    
 
+    a{
+        text-decoration: none;
+        color: rgb(149, 122, 122);
+    }
+    
 
     tr{
         border-bottom: 0.5em solid #FBC1C1;;
@@ -49,6 +57,5 @@ table{
         width:5%;
         text-align: center;
     }
- 
 
 }

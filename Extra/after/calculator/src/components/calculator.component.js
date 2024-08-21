@@ -6,6 +6,7 @@ export default class Calculator extends Component{
    constructor(props){
     super(props);
 
+
     this.onChangeNumber1=this.onChangeNumber1.bind(this);
     this.onChangeNumber2=this.onChangeNumber2.bind(this);
     this.onChangeSign=this.onChangeSign.bind(this);
@@ -54,7 +55,7 @@ export default class Calculator extends Component{
                 })})
     .catch(err=>console.log(err));
 
-
+    window.location='/';
     //console.log("number3:",this.state.number3);
    }
 
