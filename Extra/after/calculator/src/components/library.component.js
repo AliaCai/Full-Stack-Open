@@ -10,7 +10,7 @@ const Equ = props =>(
         <td class='col1'>{props.equ.number1} {props.equ.sign=='divide'? '/': props.equ.sign} {props.equ.number2} = {props.equ.number3}</td>
         <td class='col2' onClick={()=>props.deleteEqu(props.equ._id)}>delete</td>
         <td class='sep'> | </td>
-        <td class = 'col3'><Link to={'/edit/'+props.key}>edit</Link></td>
+        <td class = 'col3'><Link to={{pathname: `/edit/${props.equ._id}`, state:{id:`${props.equ._id}`}}} >{props.equ._id}`</Link></td>
     </tr>
 
 )
@@ -22,7 +22,7 @@ export default class Library extends Component{
         this.deleteEqu=this.deleteEqu.bind(this);
         this.updateEqu=this.deleteEqu.bind(this);
         this.state={
-            equations:[]
+            equations:[],
         };
     }
 
@@ -50,19 +50,6 @@ export default class Library extends Component{
         window.location='/';
     }
 
-    updateEqu(num1, num2, num3, sign, key){
-        const newEqu={
-            number1: num1,
-            number2:num2,
-            number3:num3,
-            sign:sign
-        }
-        console.log("run update");
-
-        axios.push('http://localhost:5000/library/'+key, newEqu)
-        .then(()=>console.log(`${key} is updated`))
-        .catch(err=>console.log(err));
-    }
 
     render(){//<table> -> 1. <thead> <tr> <th> 2. </table> <tr> <td>
         return(

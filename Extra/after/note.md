@@ -18,6 +18,6 @@ password: yaIB5JuZpqJIFY0h
 > backend npm run dev
 > fontend npm start
 
-
+https://stackoverflow.com/questions/52238637/react-router-how-to-pass-data-between-pages-in-react
 
 
