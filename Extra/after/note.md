@@ -15,6 +15,8 @@ mongodb:
 username: heyuncai10
 password: yaIB5JuZpqJIFY0h
 
+> backend npm run dev
+> fontend npm start
 
 
 

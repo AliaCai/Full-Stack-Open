@@ -23,8 +23,8 @@ export default class Calculator extends Component{
     this.setState({
         number1:e.target.value
     })
-    console.log(e)
-    console.log(e.target)
+    /*console.log(e)
+    console.log(e.target)*/
    }
 
    onChangeNumber2(e){
@@ -55,7 +55,7 @@ export default class Calculator extends Component{
     .catch(err=>console.log(err));
 
 
-    console.log("number3:",this.state.number3);
+    //console.log("number3:",this.state.number3);
    }
 
     render(){
