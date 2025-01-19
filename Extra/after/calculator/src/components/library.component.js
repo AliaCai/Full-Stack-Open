@@ -10,12 +10,12 @@ const Equ = props =>(
         <td class='col1'>{props.equ.number1} {props.equ.sign=='divide'? '/': props.equ.sign} {props.equ.number2} = {props.equ.number3}</td>
         <td class='col2' onClick={()=>props.deleteEqu(props.equ._id)}>delete</td>
         <td class='sep'> | </td>
-        <td class = 'col3'><Link to={{pathname: `/edit/${props.equ._id}`, state:{id:`${props.equ._id}`}}} >{props.equ._id}`</Link></td>
+        <td class = 'col3'><Link to={{pathname: `/edit/${props.equ._id}`, state:{id:`${props.equ._id}`}}} >edit</Link></td>
     </tr>
 
 )
 
-
+//Link to {{pathname: `/edit/${props.equ._id}`, state:{id:`${props.equ._id}`}}}
 export default class Library extends Component{
     constructor(props){
         super(props);
@@ -48,6 +48,7 @@ export default class Library extends Component{
         .catch(err=>console.log(err));
 
         window.location='/';
+
     }
 
 

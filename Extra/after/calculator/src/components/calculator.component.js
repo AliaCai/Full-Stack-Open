@@ -11,7 +11,7 @@ export default class Calculator extends Component{
     this.onChangeNumber2=this.onChangeNumber2.bind(this);
     this.onChangeSign=this.onChangeSign.bind(this);
     this.onSubmit=this.onSubmit.bind(this);
-    this.state={
+    this. ={
         number1:0,
         number2: 0,
         number3: 0,
@@ -55,7 +55,15 @@ export default class Calculator extends Component{
                 })})
     .catch(err=>console.log(err));
 
+    
+
     window.location='/';
+    this.setState={
+        number1:Number(this.state.number1),
+        number2:Number(this.state.number2),
+        number3:Number(this.state.number3),
+        sign:Number(this.state.sign)
+    }
     //console.log("number3:",this.state.number3);
    }
 

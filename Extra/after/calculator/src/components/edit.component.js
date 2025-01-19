@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {createBrowserRouter as Router, Link} from 'react-router-dom';
 
 
 const EditEqu = props => (
@@ -29,6 +29,7 @@ export default class Edit extends Component {
         super(props);
         this.deleteEqu=this.deleteEqu.bind(this);
         this.updateEqu=this.updateEqu.bind(this);
+
 
         this.state={
             equations:[],
@@ -85,7 +86,7 @@ export default class Edit extends Component {
 
     render(){
         return(
-            <div style={{ height: '35em', overflow: 'scroll' }} class='library'>
+            <div  style={{ height: '35em', overflow: 'scroll' }} class='library'>
             <h2>Edit</h2>
             <h2>{this.state.id}sdf</h2>
             <table>
